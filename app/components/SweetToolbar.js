@@ -11,11 +11,13 @@ require('../sass/SweetToolbar.sass');
 export default React.createClass({
   getInitialState() {
     return {
+      initConfigLen: this.props.initConfig.length,
       isMainIconHide: false,
       isMainIconClicked: false,
       isSubIconHide: true,
       isSubIconShow: false,
-      isCancelIconClicked: false
+      isCancelIconClicked: false,
+      isCancelIconShow: false
     };
   },
 
@@ -27,7 +29,7 @@ export default React.createClass({
     const that = this;
 
     this.setState({
-      isMainIconClicked: true,
+      isMainIconClicked: true
     });
 
     setTimeout(function () {
@@ -37,7 +39,13 @@ export default React.createClass({
         isSubIconHide: false,
         isSubIconShow: true
       });
-    }, 600)
+    }, 520);
+
+    setTimeout(function () {
+      that.setState({
+        isCancelIconShow: true
+      });
+    }, that.state.initConfigLen * 50 + 320);
   },
 
   _handleSubIconClick: function (clickFn) {
@@ -47,6 +55,21 @@ export default React.createClass({
 
   _handleCancelIconClick: function () {
     console.log('Click cancel icon');
+    const that = this;
+
+    this.setState({
+      isCancelIconClicked: true
+    });
+
+    setTimeout(function () {
+      that.setState({
+        isMainIconHide: false,
+        isSubIconHide: true,
+        isSubIconShow: false,
+        isCancelIconShow: false,
+        isCancelIconClicked: false,
+      });
+    }, that.state.initConfigLen * 50 + 100)
   },
 
   _genRows: function (initConfig) {
@@ -56,14 +79,12 @@ export default React.createClass({
 
     initConfig.forEach(function (config) {
       const defaultClasses = 'icon-sub sub-'+ index + ' ' + config.iconName;
-
-      let subIconClassed = classNames(defaultClasses, {'hide':that.state.isSubIconHide, 'show': that.state.isSubIconShow});
-
-      // const className = 'icon-sub ' + config.iconName;
       const Icon = IconFa[config.iconName];
       const style = {
         animationDuration: (index * 50 + 100) + 'ms'
       }
+      let subIconClassed = classNames(defaultClasses, {'hide':that.state.isSubIconHide, 'show': that.state.isSubIconShow});
+
       result.push(
         <div key={'icon-sub--' + index} style={style} className={subIconClassed} onClick={that._handleSubIconClick.bind(that, config.clickFn)}>
           <Icon />
@@ -77,7 +98,7 @@ export default React.createClass({
 
   render: function() {
     let mainIconClasses = classNames('icon-main share', {'hide': this.state.isMainIconHide, 'clicked': this.state.isMainIconClicked});
-    let cancelIconClasses = classNames('icon-sub close', {'clicked': this.state.isCancelIconClicked});
+    let cancelIconClasses = classNames('icon-cancel close', {'show': this.state.isCancelIconShow, 'clicked': this.state.isCancelIconClicked});
 
     return (
       <div className="sweet-toolbar">

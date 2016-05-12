@@ -37,12 +37,12 @@ $icon-color: black
   0%
     transform: scale(0.3) translateX(-60px)
     opacity: 0
+  60%
+    opacity: 1
   80%
     transform: scale(1)
-    opacity: 1
   100%
     transform: translateX(0)
-    opacity: 1
 
 .sweet-toolbar
   .icon-main, .icon-sub, .icon-cancel
@@ -67,6 +67,7 @@ $icon-color: black
         animation-name: mainSvgClicked
         animation-duration: 400ms
         animation-iteration-count: 1
+
     &.hide
       animation-name: mainIconHide
       animation-duration: 100ms
@@ -81,6 +82,13 @@ $icon-color: black
 
   .icon-cancel
     display: inline-block
+    opacity: 0
+    transform: scale(0) translateX(-60px)
+    transition: transform 100ms ease
+
+    &.show
+      opacity: 1
+      transform: scale(1) translateX(0)
 
   .hide
     display: none
