@@ -28,21 +28,33 @@ const cancelFn = function (endSearch) {
 
 const initConfig = [
   {
-    iconName: 'plane',
+    iconName: 'FaFacebook',
     clickFn: function () {
-      console.log('plane Fn');
+      console.log('Facebook Fn');
     }
   },
   {
-    iconName: 'android',
+    iconName: 'FaTwitter',
     clickFn: function () {
-      console.log('Android Fn');
+      console.log('Twitter Fn');
     }
   },
   {
-    iconName: 'anchor',
+    iconName: 'FaPinterest',
     clickFn: function () {
-      console.log('Anchor Fn');
+      console.log('Pinterest Fn');
+    }
+  },
+  {
+    iconName: 'FaTumblr',
+    clickFn: function () {
+      console.log('Tumblr Fn');
+    }
+  },
+  {
+    iconName: 'FaGooglePlus',
+    clickFn: function () {
+      console.log('Google Plus Fn');
     }
   }
 ];

@@ -1,14 +1,86 @@
+$icon-bg: white
+$icon-color: black
+
+@keyframes mainIconClicked
+  40%
+    transform: scale(1);
+  45%
+    transform: scale(0.4);
+  87%
+    transform: scale(1.2);
+  100%
+    transform: scale(1);
+
+
+@keyframes mainSvgClicked
+  0%
+    background-color: white
+    color: black
+  40%
+    background-color: black
+    color: white
+
+  100%
+    background-color: white
+    color: black
+
+@keyframes mainIconHide
+  0%
+    display: block
+    opacity: 1
+  98%
+    opacity: 0
+  100%
+    display: none
+
+@keyframes subIconShow
+  0%
+    transform: scale(0.3) translateX(-60px)
+    opacity: 0
+  80%
+    transform: scale(1)
+    opacity: 1
+  100%
+    transform: translateX(0)
+    opacity: 1
+
 .sweet-toolbar
-  .icon
+  .icon-main, .icon-sub, .icon-cancel
+    svg
+      margin: 0 5px
+      padding: 20px
+      color: $icon-color
+      font-size: 26px
+      border-radius: 50%
+      box-shadow: 0 4px 19px 0px lightgray
+      background-color: $icon-bg
+
+  .icon-main
+    position: absolute;
+
+    &.clicked
+      animation-name: mainIconClicked
+      animation-duration: 500ms
+      animation-iteration-count: 1
+
+      svg
+        animation-name: mainSvgClicked
+        animation-duration: 400ms
+        animation-iteration-count: 1
+    &.hide
+      animation-name: mainIconHide
+      animation-duration: 100ms
+      animation-iteration-count: 1
+
+  .icon-sub
     display: inline-block
 
-    svg
-      margin: 0 3px
-      padding: 10px
-      width: 40px
-      height: 40px
-      color: white
-      font-size: 30px
-      border-radius: 50%
-      background-color: black
+    &.show
+      animation-name: subIconShow
+      animation-iteration-count: 1
 
+  .icon-cancel
+    display: inline-block
+
+  .hide
+    display: none

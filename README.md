@@ -26,6 +26,7 @@ Step 2:
 
 
 ## Usage
+* iconName please refer [react-icons](http://gorangajic.github.io/react-icons/fa.html)
 
 ```js
 import React from 'react';
@@ -35,25 +36,24 @@ import SweetToobar from "react-sweet-toobar";
 
 const initConfig = [
   {
-    iconName: 'plane',
+    iconName: 'fa/search',
     clickFn: function () {
-      console.log('plane Fn');
+      console.log('wifi Fn');
     }
   },
   {
-    iconName: 'android',
+    iconName: 'md/chat',
     clickFn: function () {
-      console.log('Android Fn');
+      console.log('chat Fn');
     }
   },
   {
-    iconName: 'anchor',
+    iconName: 'md/circle',
     clickFn: function () {
-      console.log('Anchor Fn');
+      console.log('circle Fn');
     }
   }
 ];
-
 ReactDOM.render(
   <div style={styles.main}>
     <SweetToolbar initConfig={initConfig} />
