@@ -1,8 +1,8 @@
 # react-sweet-toobar
 
-[react-sweet-Toobar](https://www.npmjs.com/package/react-sweet-toobar) as React components
+[react-sweet-toobar](https://www.npmjs.com/package/react-sweet-toobar) as React components
 
-[![NPM](https://nodei.co/npm/react-sweet-toobar.png)](https://www.npmjs.com/package/react-sweet-Toobar)
+[![NPM](https://nodei.co/npm/react-sweet-toobar.png)](https://www.npmjs.com/package/react-sweet-toobar)
 
 ## Description
 React based component Toobar. Enhance user experience of Toobar.
@@ -22,11 +22,11 @@ npm install --save react-sweet-toobar
 ```
 
 Step 2:
-* include node_module/react-sweet-Toobar/dist/css/SweetToobar.css
+* include node_module/react-sweet-toobar/dist/css/SweetToobar.css
 
 
 ## Usage
-* iconName please refer [react-icons](http://gorangajic.github.io/react-icons/fa.html)
+* iconName please refer [react-icons Font-Awesome](http://gorangajic.github.io/react-icons/fa.html)
 
 ```js
 import React from 'react';
@@ -36,24 +36,37 @@ import SweetToobar from "react-sweet-toobar";
 
 const initConfig = [
   {
-    iconName: 'fa/search',
+    iconName: 'FaFacebook',
     clickFn: function () {
-      console.log('wifi Fn');
+      console.log('Handle Facebook Click');
     }
   },
   {
-    iconName: 'md/chat',
+    iconName: 'FaTwitter',
     clickFn: function () {
-      console.log('chat Fn');
+      console.log('Handle Twitter Click');
     }
   },
   {
-    iconName: 'md/circle',
+    iconName: 'FaPinterest',
     clickFn: function () {
-      console.log('circle Fn');
+      console.log('Handle Pinterest Click');
+    }
+  },
+  {
+    iconName: 'FaTumblr',
+    clickFn: function () {
+      console.log('Handle Tumblr Click');
+    }
+  },
+  {
+    iconName: 'FaGooglePlus',
+    clickFn: function () {
+      console.log('Handle Google Plus Click');
     }
   }
 ];
+
 ReactDOM.render(
   <div style={styles.main}>
     <SweetToolbar initConfig={initConfig} />

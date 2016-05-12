@@ -30,31 +30,31 @@ const initConfig = [
   {
     iconName: 'FaFacebook',
     clickFn: function () {
-      console.log('Facebook Fn');
+      console.log('Handle Facebook Click');
     }
   },
   {
     iconName: 'FaTwitter',
     clickFn: function () {
-      console.log('Twitter Fn');
+      console.log('Handle Twitter Click');
     }
   },
   {
     iconName: 'FaPinterest',
     clickFn: function () {
-      console.log('Pinterest Fn');
+      console.log('Handle Pinterest Click');
     }
   },
   {
     iconName: 'FaTumblr',
     clickFn: function () {
-      console.log('Tumblr Fn');
+      console.log('Handle Tumblr Click');
     }
   },
   {
     iconName: 'FaGooglePlus',
     clickFn: function () {
-      console.log('Google Plus Fn');
+      console.log('Handle Google Plus Click');
     }
   }
 ];
